@@ -10,10 +10,25 @@ Python 3.6 or higher.
 
 There are no external dependencies, Neo.
 
+## Docker
+
+If you don't have Python installed, you can also use a docker image:
+
+```sh
+docker pull ghcr.io/tohn/hydra-link-checker
+```
+
 ## Usage
 
 ```sh
 $ python hydra.py -h
+usage: hydra.py [-h] [--config CONFIG] URL
+```
+
+With Docker:
+
+```sh
+$ docker run --rm -it ghcr.io/tohn/hydra-link-checker python hydra.py -h
 usage: hydra.py [-h] [--config CONFIG] URL
 ```
 
@@ -80,6 +95,12 @@ To use a configuration file, supply the filename:
 
 ```sh
 python hydra.py https://example.com --config ./hydra-config.json
+```
+
+With Docker:
+
+```sh
+docker run --rm -v $(pwd):/opt -it ghcr.io/tohn/hydra-link-checker python hydra.py https://example.com --config ./hydra-config.json
 ```
 
 Possible settings:
